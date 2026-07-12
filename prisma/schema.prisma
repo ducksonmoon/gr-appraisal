@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+enum Role {
+  ADMIN
+  MANAGER
+  VIEWER
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(VIEWER)
+  createdAt    DateTime @default(now())
+}
+
+model Evaluation {
+  id               String   @id @default(cuid())
+  nationalId       String?  @unique
+  facultyName      String
+  faculty          String
+  educationalScore Int
+  researchScore    Int
+  executiveScore   Int
+  totalScore       Int
+  activitiesJson   String?  // JSON array of YearlyActivity
+  createdAt        DateTime @default(now())
+}
+
+model DataChangeLog {
+  id           String   @id @default(cuid())
+  actorUserId  String
+  actorEmail   String
+  action       String
+  entityId     String?
+  summary      String?
+  detailsJson  String?
+  createdAt    DateTime @default(now())
+
+  @@index([createdAt])
+}
