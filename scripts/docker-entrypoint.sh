@@ -4,7 +4,7 @@ set -e
 mkdir -p /data
 
 echo "Applying database schema..."
-node ./node_modules/prisma/build/index.js db push --skip-generate
+node ./node_modules/prisma/build/index.js db push
 
 if [ ! -f /data/.seeded ]; then
   echo "First run: seeding database..."
