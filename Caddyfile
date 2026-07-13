@@ -1,4 +1,19 @@
-gr.mazust.ac.ir {
+# Temporary: HTTP until provider firewall allows inbound 80/443 for Let's Encrypt.
+# After opening ports on the hosting panel, replace this file with HTTPS-only:
+#
+#   gr.mazust.ac.ir {
+#     encode gzip zstd
+#     reverse_proxy app:3000
+#   }
+#
+# then: docker compose restart caddy
+
+http://gr.mazust.ac.ir {
+	encode gzip zstd
+	reverse_proxy app:3000
+}
+
+:80 {
 	encode gzip zstd
 	reverse_proxy app:3000
 }

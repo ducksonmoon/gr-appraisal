@@ -16,7 +16,7 @@ cp .env.example .env
 docker compose up -d --build
 ```
 
-### Iran / restricted network
+## Iran / restricted network
 
 If `docker pull` fails with 403, configure US DNS and a registry mirror on the server:
 
@@ -38,6 +38,10 @@ sudo tee /etc/docker/daemon.json <<'EOF'
 EOF
 sudo systemctl restart docker
 ```
+
+### Let's Encrypt / HTTPS
+
+UFW on the VM must allow 80/443 (already configured in deploy). If ACME still times out, also open **inbound TCP 80 and 443** in the **hosting/provider panel** (outside the VM). Until that works, the shipped `Caddyfile` serves HTTP so the app remains reachable.
 
 ## Environment variables
 
