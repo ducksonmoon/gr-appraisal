@@ -136,27 +136,27 @@ body {
   }
 
   .panel-app .panel-input {
-    @apply app-input;
+    @apply min-h-10 w-full rounded-sm border border-[var(--border)] bg-[var(--surface-raised)] px-3 py-2 text-sm text-[var(--text)] shadow-sm outline-none transition placeholder:text-[var(--text-muted)] focus:border-[var(--brand)] focus:bg-white focus:ring-2 focus:ring-[var(--focus-ring)];
   }
 
   .panel-app .panel-select {
-    @apply app-select;
+    @apply min-h-10 rounded-sm border border-[var(--border)] bg-[var(--surface-raised)] px-3 py-2 text-sm text-[var(--text)] shadow-sm outline-none transition focus:border-[var(--brand)] focus:bg-white focus:ring-2 focus:ring-[var(--focus-ring)];
   }
 
   .panel-app .panel-btn-primary {
-    @apply app-btn-primary min-h-11 px-5;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-sm bg-[var(--brand)] px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[var(--brand-deep)] disabled:cursor-not-allowed disabled:opacity-50;
   }
 
   .panel-app .panel-btn-secondary {
-    @apply app-btn-secondary min-h-11 px-5;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-sm border border-[var(--border)] bg-[var(--surface-card)] px-5 py-2 text-sm font-medium text-[var(--text)] shadow-sm transition hover:bg-[var(--surface-raised)] disabled:opacity-50;
   }
 
   .panel-app .panel-btn-ghost {
-    @apply app-btn-ghost min-h-11;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-sm border border-transparent px-3 py-2 text-sm font-medium text-[var(--text-muted)] transition hover:bg-[var(--surface-raised)] hover:text-[var(--text)];
   }
 
   .panel-app .panel-btn-danger {
-    @apply app-btn-danger;
+    @apply inline-flex items-center gap-1.5 rounded-sm border border-red-300/80 bg-[var(--surface-card)] px-3 py-1.5 text-sm font-medium text-red-900 transition hover:bg-red-50;
   }
 
   .panel-app .panel-table-wrap {
@@ -180,7 +180,7 @@ body {
   }
 
   .panel-app .panel-skip-link {
-    @apply app-skip-link;
+    @apply sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:m-3 focus:rounded-sm focus:bg-[var(--brand)] focus:px-4 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-white focus:shadow-lg;
   }
 
   .panel-app .panel-nav button:focus-visible {
@@ -210,15 +210,15 @@ body {
   }
 
   .dash-btn-primary {
-    @apply app-btn-primary min-h-11 px-5;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-sm bg-[var(--brand)] px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[var(--brand-deep)] disabled:cursor-not-allowed disabled:opacity-50;
   }
 
   .dash-btn-secondary {
-    @apply app-btn-secondary min-h-11 px-5;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-sm border border-[var(--border)] bg-[var(--surface-card)] px-5 py-2 text-sm font-medium text-[var(--text)] shadow-sm transition hover:bg-[var(--surface-raised)] disabled:opacity-50;
   }
 
   .dash-input {
-    @apply app-input;
+    @apply min-h-10 w-full rounded-sm border border-[var(--border)] bg-[var(--surface-raised)] px-3 py-2 text-sm text-[var(--text)] shadow-sm outline-none transition placeholder:text-[var(--text-muted)] focus:border-[var(--brand)] focus:bg-white focus:ring-2 focus:ring-[var(--focus-ring)];
   }
 
   .dash-aside {
