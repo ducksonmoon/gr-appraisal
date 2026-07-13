@@ -15,6 +15,9 @@ import {
 } from '@/lib/activities';
 import { normLabel } from '@/lib/normalize';
 import { parseExcelRowsToEvaluations } from '@/lib/excelParser';
+import {
+  SAMPLE_EXCEL_FILENAME,
+} from '@/lib/excelSample';
 import AppShell from '@/components/AppShell';
 import ConfirmDialog from '@/components/ConfirmDialog';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -400,6 +403,10 @@ function ScoreHintPanel({ defaultOpen = false }: { defaultOpen?: boolean }) {
               <strong>جمع کل</strong> = آموزشی + پژوهشی + اجرایی.
             </li>
           </ul>
+          <p className="text-stone-600">
+            برای دیدن ترتیب دقیق ستون‌ها، از بخش «بارگذاری اکسل» فایل{' '}
+            <strong>نمونه قالب</strong> را دانلود کنید.
+          </p>
           <p className="font-semibold text-stone-900">هنگام ثبت دستی رکورد:</p>
           <p className="text-stone-600">
             کد ملی، نام و سه امتیاز را وارد می‌کنید؛ جمع کل به‌صورت خودکار محاسبه می‌شود. فعالیت‌های سالانه اختیاری‌اند.
@@ -1418,6 +1425,21 @@ function PanelPageInner() {
             </p>
           </div>
           <div className="panel-card-body space-y-5">
+            <div className="flex flex-wrap items-center gap-3 rounded-sm border border-[var(--border)] bg-[var(--surface-raised)] px-4 py-3">
+              <p className="min-w-0 flex-1 text-sm text-[var(--text-muted)]">
+                ابتدا فایل نمونه را دانلود کنید تا ترتیب ستون‌ها و دو ردیف نمونه مشخص باشد؛ سپس فایل خود را با همان ساختار بارگذاری کنید.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <a
+                  href={`/samples/${encodeURIComponent(SAMPLE_EXCEL_FILENAME)}`}
+                  download={SAMPLE_EXCEL_FILENAME}
+                  className="panel-btn-secondary shrink-0"
+                >
+                  <Download className="h-4 w-4" />
+                  دانلود نمونه قالب اکسل
+                </a>
+              </div>
+            </div>
             <div>
               <label className="mb-2 block text-sm font-medium text-stone-700">
                 دانشکدهٔ پیش‌فرض برای رکوردهای این فایل

@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test:filters": "npx tsx scripts/verify-dashboard-filters.ts",
+    "sample:excel": "npx tsx scripts/generate-sample-excel.ts",
     "db:push": "prisma db push",
     "db:seed": "prisma db seed",
     "db:studio": "prisma studio",

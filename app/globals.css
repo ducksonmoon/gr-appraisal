@@ -28,7 +28,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Vazir', 'Vazirmatn', Tahoma, 'Segoe UI', sans-serif;
+  font-family: var(--font-vazirmatn), Vazirmatn, Tahoma, 'Segoe UI', sans-serif;
   font-feature-settings: "kern" 1;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
