@@ -10,9 +10,33 @@
 
 ```bash
 cd /home/mirshad/university-appraisal
+git clone https://github.com/ducksonmoon/gr-appraisal.git .
 cp .env.example .env
 # Edit .env: set AUTH_SECRET (32+ chars) and strong SEED_* passwords
 docker compose up -d --build
+```
+
+### Iran / restricted network
+
+If `docker pull` fails with 403, configure US DNS and a registry mirror on the server:
+
+```bash
+sudo tee /etc/systemd/resolved.conf.d/us-dns.conf <<'EOF'
+[Resolve]
+DNS=8.8.8.8 1.1.1.1 8.8.4.4
+EOF
+sudo systemctl restart systemd-resolved
+
+sudo tee /etc/docker/daemon.json <<'EOF'
+{
+  "dns": ["8.8.8.8", "1.1.1.1"],
+  "registry-mirrors": [
+    "https://docker.arvancloud.ir",
+    "https://registry.docker.ir"
+  ]
+}
+EOF
+sudo systemctl restart docker
 ```
 
 ## Environment variables
