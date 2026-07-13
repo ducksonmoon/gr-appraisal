@@ -8,6 +8,8 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 COPY prisma ./prisma
 COPY prisma.config.ts ./prisma.config.ts
+# prisma.config.ts requires DATABASE_URL even for generate during postinstall
+ENV DATABASE_URL="file:/data/prod.db"
 RUN npm ci
 
 FROM node:20-bookworm-slim AS builder
